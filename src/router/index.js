@@ -1,22 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Read from '../views/Read.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/read',
+    name: 'Read',
+    component: Read
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/unread',
+    name: 'Unread',
+    component: () => import('../views/Unread.vue')
+  },
+  {
+    path: '/recycle',
+    name: 'Recycle',
+    component: () => import('../views/Recycle.vue')
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: () => import('../views/Message.vue')
+  },
+  // 设置默认路由
+  {
+    path: "/",
+    redirect: "/message"
   }
 ]
 
